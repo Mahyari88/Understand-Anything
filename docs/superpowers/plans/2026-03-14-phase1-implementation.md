@@ -1755,7 +1755,7 @@ const complexityBadge: Record<string, string> = {
 };
 
 export function CustomNode({ data }: NodeProps<CustomNodeData>) {
-  const colorClass = typeColors[data.nodeType] || "bg-gray-900 border-gray-500";
+  const colorClass = typeColors[data.nodeType] || "bg-slate-900 border-slate-500";
   const highlightClass = data.isHighlighted
     ? "ring-2 ring-yellow-400 shadow-lg shadow-yellow-400/20"
     : "";
@@ -1767,10 +1767,10 @@ export function CustomNode({ data }: NodeProps<CustomNodeData>) {
     <div
       className={`rounded-lg border px-3 py-2 min-w-[140px] max-w-[220px] ${colorClass} ${highlightClass} ${selectedClass}`}
     >
-      <Handle type="target" position={Position.Top} className="!bg-gray-400" />
+      <Handle type="target" position={Position.Top} className="!bg-slate-400" />
 
       <div className="flex items-center gap-1.5 mb-1">
-        <span className="text-[10px] uppercase tracking-wider text-gray-400">
+        <span className="text-[10px] uppercase tracking-wider text-slate-400">
           {data.nodeType}
         </span>
         <span
@@ -1784,14 +1784,14 @@ export function CustomNode({ data }: NodeProps<CustomNodeData>) {
         {data.label}
       </div>
 
-      <div className="text-xs text-gray-400 mt-0.5 line-clamp-2">
+      <div className="text-xs text-slate-400 mt-0.5 line-clamp-2">
         {data.summary}
       </div>
 
       <Handle
         type="source"
         position={Position.Bottom}
-        className="!bg-gray-400"
+        className="!bg-slate-400"
       />
     </div>
   );
@@ -1882,7 +1882,7 @@ export function GraphView() {
 
   if (!graph) {
     return (
-      <div className="flex items-center justify-center h-full text-gray-500">
+      <div className="flex items-center justify-center h-full text-slate-500">
         No knowledge graph loaded. Run /understand first.
       </div>
     );
@@ -1957,7 +1957,7 @@ export function CodeViewer() {
 
   if (!selectedNode || !selectedNode.filePath) {
     return (
-      <div className="flex items-center justify-center h-full text-gray-500">
+      <div className="flex items-center justify-center h-full text-slate-500">
         Select a node to view its source code.
       </div>
     );
@@ -1975,12 +1975,12 @@ export function CodeViewer() {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="px-3 py-1.5 bg-gray-800 border-b border-gray-700 text-sm text-gray-300 flex items-center gap-2">
-        <span className="text-gray-500">
+      <div className="px-3 py-1.5 bg-slate-800 border-b border-slate-700 text-sm text-slate-300 flex items-center gap-2">
+        <span className="text-slate-500">
           {selectedNode.type.toUpperCase()}
         </span>
         <span className="font-medium">{selectedNode.name}</span>
-        <span className="text-gray-500 ml-auto">
+        <span className="text-slate-500 ml-auto">
           {selectedNode.filePath}
         </span>
       </div>
@@ -2034,9 +2034,9 @@ export function SearchBar() {
   const setSearchQuery = useDashboardStore((s) => s.setSearchQuery);
 
   return (
-    <div className="flex items-center gap-3 px-4 py-2 bg-gray-800 border-b border-gray-700">
+    <div className="flex items-center gap-3 px-4 py-2 bg-slate-800 border-b border-slate-700">
       <svg
-        className="w-4 h-4 text-gray-400"
+        className="w-4 h-4 text-slate-400"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -2053,10 +2053,10 @@ export function SearchBar() {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder='Search: "authentication", "api layer", "database"...'
-        className="flex-1 bg-transparent text-white placeholder-gray-500 outline-none text-sm"
+        className="flex-1 bg-transparent text-white placeholder-slate-500 outline-none text-sm"
       />
       {searchQuery && (
-        <span className="text-xs text-gray-400">
+        <span className="text-xs text-slate-400">
           {searchResults.length} results
         </span>
       )}
@@ -2080,7 +2080,7 @@ export function NodeInfo() {
 
   if (!selectedNode) {
     return (
-      <div className="h-full flex items-center justify-center text-gray-500 p-4 text-sm">
+      <div className="h-full flex items-center justify-center text-slate-500 p-4 text-sm">
         Select a node to see details. Chat and Learn panels coming in Phase 2.
       </div>
     );
@@ -2097,31 +2097,31 @@ export function NodeInfo() {
         {selectedNode.name}
       </h3>
       <div className="flex gap-2 mb-3">
-        <span className="px-2 py-0.5 bg-gray-700 rounded text-xs text-gray-300">
+        <span className="px-2 py-0.5 bg-slate-700 rounded text-xs text-slate-300">
           {selectedNode.type}
         </span>
-        <span className="px-2 py-0.5 bg-gray-700 rounded text-xs text-gray-300">
+        <span className="px-2 py-0.5 bg-slate-700 rounded text-xs text-slate-300">
           {selectedNode.complexity}
         </span>
       </div>
 
-      <p className="text-gray-300 mb-3">{selectedNode.summary}</p>
+      <p className="text-slate-300 mb-3">{selectedNode.summary}</p>
 
       {selectedNode.languageNotes && (
         <div className="mb-3 p-2 bg-blue-900/30 border border-blue-800 rounded">
           <div className="text-xs text-blue-400 mb-1">Language Note</div>
-          <p className="text-gray-300 text-xs">{selectedNode.languageNotes}</p>
+          <p className="text-slate-300 text-xs">{selectedNode.languageNotes}</p>
         </div>
       )}
 
       {selectedNode.tags.length > 0 && (
         <div className="mb-3">
-          <div className="text-xs text-gray-500 mb-1">Tags</div>
+          <div className="text-xs text-slate-500 mb-1">Tags</div>
           <div className="flex flex-wrap gap-1">
             {selectedNode.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-1.5 py-0.5 bg-gray-700 rounded text-xs text-gray-300"
+                className="px-1.5 py-0.5 bg-slate-700 rounded text-xs text-slate-300"
               >
                 {tag}
               </span>
@@ -2132,7 +2132,7 @@ export function NodeInfo() {
 
       {connectedEdges.length > 0 && (
         <div>
-          <div className="text-xs text-gray-500 mb-1">
+          <div className="text-xs text-slate-500 mb-1">
             Connections ({connectedEdges.length})
           </div>
           <div className="space-y-1">
@@ -2143,7 +2143,7 @@ export function NodeInfo() {
               const direction =
                 edge.source === selectedNodeId ? "\u2192" : "\u2190";
               return (
-                <div key={i} className="text-xs text-gray-400">
+                <div key={i} className="text-xs text-slate-400">
                   {direction} {edge.type}: {otherNode?.name || otherId}
                 </div>
               );
@@ -2192,14 +2192,14 @@ function App() {
   }, [setGraph]);
 
   return (
-    <div className="h-screen w-screen flex flex-col bg-gray-900 text-white">
+    <div className="h-screen w-screen flex flex-col bg-slate-900 text-white">
       {/* Header */}
-      <div className="flex items-center gap-3 px-4 py-2 bg-gray-950 border-b border-gray-800">
+      <div className="flex items-center gap-3 px-4 py-2 bg-slate-950 border-b border-slate-800">
         <h1 className="text-sm font-bold tracking-wider">
           UNDERSTAND ANYTHING
         </h1>
         {graph && (
-          <span className="text-xs text-gray-500">
+          <span className="text-xs text-slate-500">
             {graph.project.name} &middot; {graph.nodes.length} nodes &middot;{" "}
             {graph.edges.length} edges
           </span>
@@ -2210,24 +2210,24 @@ function App() {
       <SearchBar />
 
       {/* Main workspace: 2x2 grid */}
-      <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-px bg-gray-700 overflow-hidden">
+      <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-px bg-slate-700 overflow-hidden">
         {/* Top-left: Graph View */}
-        <div className="bg-gray-900">
+        <div className="bg-slate-900">
           <GraphView />
         </div>
 
         {/* Top-right: Code Viewer */}
-        <div className="bg-gray-900">
+        <div className="bg-slate-900">
           <CodeViewer />
         </div>
 
         {/* Bottom-left: Chat Panel (placeholder) */}
-        <div className="bg-gray-900 flex items-center justify-center text-gray-600 text-sm">
+        <div className="bg-slate-900 flex items-center justify-center text-slate-600 text-sm">
           Chat panel — coming in Phase 2
         </div>
 
         {/* Bottom-right: Node Info / Learn Panel */}
-        <div className="bg-gray-900">
+        <div className="bg-slate-900">
           <NodeInfo />
         </div>
       </div>

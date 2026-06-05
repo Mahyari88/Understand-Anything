@@ -1812,13 +1812,13 @@ const searchMode = useDashboardStore((s) => s.searchMode);
 const setSearchMode = useDashboardStore((s) => s.setSearchMode);
 
 // Add toggle next to the search input:
-<div className="flex items-center gap-1 bg-gray-700 rounded p-0.5 shrink-0">
+<div className="flex items-center gap-1 bg-slate-700 rounded p-0.5 shrink-0">
   <button
     onClick={() => setSearchMode("fuzzy")}
     className={`text-[10px] px-1.5 py-0.5 rounded transition-colors ${
       searchMode === "fuzzy"
-        ? "bg-gray-600 text-white"
-        : "text-gray-400 hover:text-gray-300"
+        ? "bg-slate-600 text-white"
+        : "text-slate-400 hover:text-slate-300"
     }`}
   >
     Fuzzy
@@ -1827,8 +1827,8 @@ const setSearchMode = useDashboardStore((s) => s.setSearchMode);
     onClick={() => setSearchMode("semantic")}
     className={`text-[10px] px-1.5 py-0.5 rounded transition-colors ${
       searchMode === "semantic"
-        ? "bg-gray-600 text-white"
-        : "text-gray-400 hover:text-gray-300"
+        ? "bg-slate-600 text-white"
+        : "text-slate-400 hover:text-slate-300"
     }`}
   >
     Semantic

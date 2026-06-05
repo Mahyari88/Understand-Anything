@@ -1653,7 +1653,7 @@ The component layout:
 Replace the placeholder `div` in the bottom-left grid cell:
 ```typescript
 // In App.tsx, replace:
-<div className="bg-gray-800 ...">Chat — coming soon</div>
+<div className="bg-slate-800 ...">Chat — coming soon</div>
 // With:
 <ChatPanel />
 ```

@@ -658,21 +658,21 @@ export default function LearnPanel() {
 
   if (tourSteps.length === 0) {
     return (
-      <div className="h-full w-full flex items-center justify-center bg-gray-800 rounded-lg">
-        <p className="text-gray-400 text-sm">No tour available for this project</p>
+      <div className="h-full w-full flex items-center justify-center bg-slate-800 rounded-lg">
+        <p className="text-slate-400 text-sm">No tour available for this project</p>
       </div>
     );
   }
 
   if (!tourActive) {
     return (
-      <div className="h-full w-full bg-gray-800 rounded-lg flex flex-col items-center justify-center gap-4 p-6">
+      <div className="h-full w-full bg-slate-800 rounded-lg flex flex-col items-center justify-center gap-4 p-6">
         <div className="text-center">
           <h3 className="text-lg font-bold text-white mb-2">Project Tour</h3>
-          <p className="text-sm text-gray-400 mb-1">
+          <p className="text-sm text-slate-400 mb-1">
             {tourSteps.length} steps to understand this codebase
           </p>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-slate-500">
             Follow a guided walkthrough of the project architecture
           </p>
         </div>
@@ -687,9 +687,9 @@ export default function LearnPanel() {
           {tourSteps.map((step, i) => (
             <div
               key={i}
-              className="flex items-center gap-2 px-3 py-1.5 rounded text-xs text-gray-400"
+              className="flex items-center gap-2 px-3 py-1.5 rounded text-xs text-slate-400"
             >
-              <span className="text-gray-600 font-mono w-5 text-right">{step.order}.</span>
+              <span className="text-slate-600 font-mono w-5 text-right">{step.order}.</span>
               <span>{step.title}</span>
             </div>
           ))}
@@ -703,19 +703,19 @@ export default function LearnPanel() {
   const isLast = currentTourStep === tourSteps.length - 1;
 
   return (
-    <div className="h-full w-full bg-gray-800 rounded-lg flex flex-col overflow-hidden">
+    <div className="h-full w-full bg-slate-800 rounded-lg flex flex-col overflow-hidden">
       {/* Header with progress */}
-      <div className="flex items-center justify-between px-3 py-2 border-b border-gray-700 shrink-0">
-        <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+      <div className="flex items-center justify-between px-3 py-2 border-b border-slate-700 shrink-0">
+        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
           Tour
         </h3>
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-gray-500">
+          <span className="text-[10px] text-slate-500">
             {currentTourStep + 1} / {tourSteps.length}
           </span>
           <button
             onClick={stopTour}
-            className="text-[10px] text-gray-500 hover:text-gray-300 transition-colors"
+            className="text-[10px] text-slate-500 hover:text-slate-300 transition-colors"
           >
             Exit
           </button>
@@ -723,7 +723,7 @@ export default function LearnPanel() {
       </div>
 
       {/* Progress bar */}
-      <div className="h-1 bg-gray-700 shrink-0">
+      <div className="h-1 bg-slate-700 shrink-0">
         <div
           className="h-full bg-blue-500 transition-all duration-300"
           style={{ width: `${((currentTourStep + 1) / tourSteps.length) * 100}%` }}
@@ -734,13 +734,13 @@ export default function LearnPanel() {
       <div className="flex-1 overflow-y-auto px-4 py-3 min-h-0">
         <h2 className="text-base font-bold text-white mb-3">{step.title}</h2>
 
-        <div className="text-sm text-gray-300 leading-relaxed tour-markdown">
+        <div className="text-sm text-slate-300 leading-relaxed tour-markdown">
           <ReactMarkdown
             components={{
               p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
               strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
               code: ({ children }) => (
-                <code className="bg-gray-900 rounded px-1 py-0.5 text-[12px]">{children}</code>
+                <code className="bg-slate-900 rounded px-1 py-0.5 text-[12px]">{children}</code>
               ),
               ul: ({ children }) => <ul className="list-disc list-inside mb-2 space-y-1">{children}</ul>,
               ol: ({ children }) => <ol className="list-decimal list-inside mb-2 space-y-1">{children}</ol>,
@@ -764,7 +764,7 @@ export default function LearnPanel() {
 
         {/* Referenced nodes */}
         <div className="mt-4">
-          <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+          <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
             Referenced Components
           </h4>
           <div className="flex flex-wrap gap-1.5">
@@ -773,7 +773,7 @@ export default function LearnPanel() {
               return (
                 <span
                   key={nodeId}
-                  className="text-[11px] bg-gray-700 text-gray-300 px-2 py-0.5 rounded-full"
+                  className="text-[11px] bg-slate-700 text-slate-300 px-2 py-0.5 rounded-full"
                 >
                   {node?.name ?? nodeId}
                 </span>
@@ -784,7 +784,7 @@ export default function LearnPanel() {
       </div>
 
       {/* Step navigation */}
-      <div className="flex items-center gap-2 px-3 py-2 border-t border-gray-700 shrink-0">
+      <div className="flex items-center gap-2 px-3 py-2 border-t border-slate-700 shrink-0">
         {/* Step dots */}
         <div className="flex gap-1 flex-1 justify-center">
           {tourSteps.map((_, i) => (
@@ -796,7 +796,7 @@ export default function LearnPanel() {
                   ? "bg-blue-500"
                   : i < currentTourStep
                     ? "bg-blue-800"
-                    : "bg-gray-600"
+                    : "bg-slate-600"
               }`}
               title={tourSteps[i].title}
             />
@@ -808,7 +808,7 @@ export default function LearnPanel() {
           <button
             onClick={prevTourStep}
             disabled={isFirst}
-            className="text-xs px-2 py-1 rounded bg-gray-700 text-gray-300 hover:bg-gray-600 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="text-xs px-2 py-1 rounded bg-slate-700 text-slate-300 hover:bg-slate-600 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             Prev
           </button>
@@ -839,13 +839,13 @@ const hasTour = (graph?.tour ?? []).length > 0;
 {/* Bottom-right: Node Info / Learn Panel */}
 <div className="min-h-0 min-w-0 flex flex-col">
   {hasTour && (
-    <div className="flex border-b border-gray-700 bg-gray-800 rounded-t-lg shrink-0">
+    <div className="flex border-b border-slate-700 bg-slate-800 rounded-t-lg shrink-0">
       <button
         onClick={() => useDashboardStore.getState().stopTour()}
         className={`px-3 py-1.5 text-xs font-medium transition-colors ${
           !useDashboardStore.getState().tourActive
             ? "text-white border-b-2 border-blue-500"
-            : "text-gray-400 hover:text-gray-300"
+            : "text-slate-400 hover:text-slate-300"
         }`}
       >
         Details
@@ -855,7 +855,7 @@ const hasTour = (graph?.tour ?? []).length > 0;
         className={`px-3 py-1.5 text-xs font-medium transition-colors ${
           useDashboardStore.getState().tourActive
             ? "text-white border-b-2 border-blue-500"
-            : "text-gray-400 hover:text-gray-300"
+            : "text-slate-400 hover:text-slate-300"
         }`}
       >
         Tour
@@ -1097,18 +1097,18 @@ Add after the summary paragraph, before tags:
       </button>
     )}
     {nodeExplanationLoading && (
-      <div className="text-xs text-gray-400 animate-pulse">
+      <div className="text-xs text-slate-400 animate-pulse">
         Generating explanation...
       </div>
     )}
     {nodeExplanation && (
-      <div className="bg-gray-700/50 rounded-lg p-3 text-sm text-gray-300 leading-relaxed">
+      <div className="bg-slate-700/50 rounded-lg p-3 text-sm text-slate-300 leading-relaxed">
         <ReactMarkdown
           components={{
             p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
             strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
             code: ({ children }) => (
-              <code className="bg-gray-900 rounded px-1 py-0.5 text-[11px]">{children}</code>
+              <code className="bg-slate-900 rounded px-1 py-0.5 text-[11px]">{children}</code>
             ),
           }}
         >
@@ -1539,7 +1539,7 @@ export default function PersonaSelector() {
   const setPersona = useDashboardStore((s) => s.setPersona);
 
   return (
-    <div className="flex items-center gap-1 bg-gray-800 rounded-lg p-0.5">
+    <div className="flex items-center gap-1 bg-slate-800 rounded-lg p-0.5">
       {personas.map((p) => (
         <button
           key={p.id}
@@ -1548,7 +1548,7 @@ export default function PersonaSelector() {
           className={`px-2.5 py-1 rounded text-[11px] font-medium transition-colors ${
             persona === p.id
               ? "bg-blue-600 text-white"
-              : "text-gray-400 hover:text-gray-300 hover:bg-gray-700"
+              : "text-slate-400 hover:text-slate-300 hover:bg-slate-700"
           }`}
         >
           {p.label}
